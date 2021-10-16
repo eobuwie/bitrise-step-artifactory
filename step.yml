@@ -1,0 +1,62 @@
+title: |-
+  JFrog Artifactory
+summary: |
+  Upload your binary to JFrog Artifactory.
+description: |
+  Upload your binary to JFrog Artifactory.
+website: https://github.com/orbitekk/bitrise-step-artifactory.git
+source_code_url: https://github.com/orbitekk/bitrise-step-artifactory.git
+support_url: https://github.com/orbitekk/bitrise-step-artifactory.git
+host_os_tags:
+  - osx-10.10
+  - ubuntu-16.04
+
+project_type_tags:
+  - ios
+  - macos
+
+type_tags:
+  - deploy
+
+is_requires_admin_user: true
+is_always_run: false
+is_skippable: false
+run_if: ""
+
+toolkit:
+  bash:
+    entry_file: step.sh
+
+inputs:
+  - name:
+    opts:
+      title: "Framework name"
+      summary: ""
+      description: |
+        The name of the archived library.
+      is_required: true
+  - version: $APP_VERSION
+    opts:
+      title: "Framework version"
+      summary: ""
+      description: |
+        The version of the uploaded binary.
+      is_required: true
+  - input_dir: $BITRISE_DEPLOY_DIR
+    opts:
+      title: Input directory path
+      summary: The directory containing the generated artifact.
+      is_required: true
+  - url: $ARTIFACTORY_URL
+    opts:
+      title: URL
+      summary: "Repository URL"
+      is_required: true
+  - user: $ARTIFACTORY_USER
+    opts:
+      title: "User"
+      is_sensitive: true
+  - token: $ARTIFACTORY_TOKEN
+    opts:
+      title: "Token"
+      is_sensitive: true
