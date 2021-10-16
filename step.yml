@@ -60,3 +60,8 @@ inputs:
     opts:
       title: "Token"
       is_sensitive: true
+
+outputs:
+  - ARTIFACT_URL:
+    opts:
+      title: URL to file
